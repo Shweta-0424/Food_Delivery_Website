@@ -7,6 +7,8 @@ function UserContext({ children }) {
   let [cate, setCate] = useState(food_items);
   let [input, setInput] = useState("");
   let [showCart, setShowCart] = useState(false);
+  let [isLoggedIn, setIsLoggedIn] = useState(false); // <--- State defined here
+
   let data = {
     input,
     setInput,
@@ -14,6 +16,8 @@ function UserContext({ children }) {
     setCate,
     showCart,
     setShowCart,
+    isLoggedIn,     // <--- Passed in context value
+    setIsLoggedIn,  // <--- Passed in context value
   };
   return (
     <div>

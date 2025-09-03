@@ -153,3 +153,21 @@ function Home() {
 }
 
 export default Home;
+
+
+// return (
+//     <div className="bg-slate-200 w-full min-h-screen">
+//       <Nav />
+//       {/* Yeh sab comment out kar do, jahan cards render hote the */}
+//       {/* <div className="flex flex-wrap ...">{cate.map(...)}</div> */}
+
+//       {/* Uski jagah bas yeh simple text daal do */}
+//       <div className="text-center text-4xl text-green-500 font-bold pt-20">
+//         Welcome Home! (Login successful)
+//       </div>
+
+//       {/* Cart ka code rehne de sakte ho ya usko bhi comment out kar do for now */}
+//     </div>
+//   );
+// }
+// export default Home;

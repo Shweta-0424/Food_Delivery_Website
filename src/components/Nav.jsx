@@ -1,15 +1,17 @@
 import React, { useContext, useEffect } from "react";
 import { MdFastfood } from "react-icons/md";
 import { IoSearch } from "react-icons/io5";
+import { RxAvatar } from "react-icons/rx";
 import { GiShoppingBag } from "react-icons/gi";
 // import { useContext } from "react";
 import { dataContext } from "../context/UserContext";
 import { food_items } from "../food";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/AuthSlice";
 
 function Nav() {
   let { input, setInput, setCate, setShowCart } =
-    useContext(dataContext);
+  useContext(dataContext);
   useEffect(() => {
     let newList = food_items.filter(
       (item) =>
@@ -18,6 +20,10 @@ function Nav() {
     );
     setCate(newList);
   }, [input]);
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   let items = useSelector((state) => state.cart);
   console.log(items);
   return (
@@ -39,8 +45,16 @@ function Nav() {
           value={input}
         />
       </form>
+
+
+      <div className="w-[60px] h-[60px] bg-white flex justify-center items-center rounded-md shadow-xl"
+       onClick={handleLogout}>
+        <RxAvatar className="w-[30px] h-[30px] text-green-500" />
+      </div>
+
+
       <div
-        className="w-[60px] h-[60px] bg-white flex justify-center items-center shadow-xl relative"
+        className="w-[60px] h-[60px] bg-white flex justify-center items-center rounded-md shadow-xl relative"
         onClick={() => {
           setShowCart(true);
         }}
